@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rushikesh Mohire | Cyber Security Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+  body { background:#0a0a0a; color:#fff; line-height:1.6; }
+
+  header { position:fixed; width:100%; top:0; background: rgba(0,0,0,0.8); padding:1rem 0; z-index:1000;}
+  nav { display:flex; justify-content:center; }
+  nav ul { list-style:none; display:flex; }
+  nav ul li { margin:0 15px; }
+  nav ul li a { text-decoration:none; color:#fff; font-weight:500; transition:0.3s; }
+  nav ul li a:hover { color:#00ffcc; }
+
+  section { padding:100px 20px; min-height:100vh; }
+
+  /* Hero Section */
+  #home { display:flex; align-items:center; justify-content:center; position:relative; }
+  .home-container { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; max-width:1100px; width:100%; z-index:2; }
+  .home-text { flex:1; padding-right:2rem; }
+  .home-text h2 { font-size:2.5rem; color:#00ffcc; margin-bottom:0.5rem; }
+  .highlight { color:#fff; text-shadow:0 0 10px #00ffcc; }
+  .animated-role { font-size:1.3rem; color:#00ffaa; margin-bottom:1rem; min-height:24px; }
+
+  .home-buttons { margin-top:1.5rem; }
+  .btn-primary, .btn-secondary { display:inline-block; margin-right:1rem; padding:0.7rem 1.5rem; border-radius:8px; text-decoration:none; font-weight:bold; transition:0.3s; }
+  .btn-primary { background:#00ffcc; color:#000; box-shadow:0 0 15px #00ffcc; }
+  .btn-primary:hover { background:#00ffaa; transform:translateY(-3px); }
+  .btn-secondary { border:2px solid #00ffcc; color:#00ffcc; }
+  .btn-secondary:hover { background:#00ffcc; color:#000; transform:translateY(-3px); }
+  .home-img img { width:250px; border-radius:50%; border:4px solid #00ffcc; box-shadow:0 0 20px #00ffcc; }
+
+  /* Stats */
+  .stats { display:flex; gap:15px; margin-top:1.5rem; flex-wrap:wrap; }
+  .stat { background: #1a1a1a; padding:15px 20px; border-radius:10px; text-align:center; flex:1; min-width:120px; transition:0.3s; }
+  .stat:hover { box-shadow:0 0 15px #00ffcc; }
+  .stat h3 { font-size:1.5rem; color:#00ffcc; margin-bottom:0.5rem; }
+
+  /* Projects */
+  #projects h2, #education h2, #skills h2, #certificates h2, #contact h2 { text-align:center; margin-bottom:2rem; font-size:2rem; color:#00ffcc; }
+  .project-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+  .project { background:#1a1a1a; padding:20px; border-radius:12px; transition:0.3s; }
+  .project:hover { transform:translateY(-5px); box-shadow:0 0 20px #00ffcc; }
+  .project h3 { color:#00ffaa; margin-bottom:0.5rem; }
+  .cert-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 18px;
+  background: #00ffcc;
+  color: #111;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.cert-btn:hover {
+  background: #00ffaa;
+  box-shadow: 0 0 12px #00ffcc;
+}
+
+
+  /* Education */
+ /* Education Section Enhanced */
+.education-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.edu-card {
+  background: rgba(0, 0, 0, 0.6);
+  border-left: 5px solid #00ffcc;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 25px rgba(0, 255, 204, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.edu-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px #00ffcc;
+}
+
+.edu-card h3 {
+  color: #00ffcc;
+  margin-bottom: 0.7rem;
+  font-size: 1.3rem;
+}
+
+.edu-year {
+  display: inline-block;
+  background: rgba(0, 255, 204, 0.1);
+  color: #00ffcc;
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.edu-card p {
+  color: #ddd;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+  /* Skills */
+  #skills .skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; max-width:900px; margin:auto; }
+  .skill-card { background:#1a1a1a; padding:15px; border-radius:8px; text-align:center; transition:0.3s; }
+  .skill-card:hover { box-shadow:0 0 15px #00ffcc; }
+
+  /* Certificates */
+  #certificates .cert-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; max-width:900px; margin:auto; }
+  .certificate { background:#1a1a1a; padding:20px; border-radius:12px; text-align:center; transition:0.3s; }
+  .certificate:hover { box-shadow:0 0 20px #00ffcc; }
+  .certificate h3 { color:#00ffaa; margin-bottom:0.5rem; }
+  .certificate a { display:inline-block; margin-top:10px; padding:8px 15px; background:#00ffcc; color:#000; border-radius:6px; text-decoration:none; transition:0.3s; }
+  .certificate a:hover { background:#00ffaa; }
+
+  /* Contact */
+  #contact ul { display:flex; justify-content:center; gap:30px; list-style:none; padding:0; }
+  #contact ul li a { font-size:1.2rem; color:#00ffcc; text-decoration:none; transition:0.3s; }
+  #contact ul li a:hover { color:#fff; }
+
+  /* Particles */
+  #particles-js { position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; }
+  .footer {
+  background: rgba(0, 0, 0, 0.8);
+  color: #00ffcc;
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.95rem;
+  box-shadow: 0 -2px 15px rgba(0, 255, 204, 0.3);
+}
+
+.footer-links a {
+  color: #00ffcc;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px #00ffcc;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Home -->
+<section id="home">
+  <div id="particles-js"></div>
+  <div class="home-container">
+    <div class="home-text">
+      <h2>Hello, I'm <span class="highlight">Rushikesh Mohire</span></h2>
+      <h3 class="animated-role"></h3>
+      <p>Cyber Security Enthusiast & Full Stack Developer passionate about building secure and scalable systems.</p>
+      <div class="stats">
+        <div class="stat"><h3>5+</h3><p>Projects</p></div>
+        <div class="stat"><h3>2+</h3><p>Research Papers</p></div>
+        <div class="stat"><h3>2+</h3><p>Case Studies</p></div>
+        <div class="stat"><h3>9.18</h3><p>MCA CGPA</p></div>
+      </div>
+      <div class="home-buttons">
+        <a href="#contact" class="btn-primary">💼 Hire Me</a>
+        <a href="Rushikesh_resume.pdf" download class="btn-secondary">⬇️ View Resume</a>
+      </div>
+    </div>
+    <div class="home-img">
+      <img src="id_photo_new-removebg-preview.png" alt="Rushikesh Mohire">
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="container">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      
+      <!-- Cyber Security Website -->
+      <div class="project">
+        <h3>🛡️ Cyber Security Website</h3>
+        <p>Interactive platform with password generation & threat detection tools.</p>
+        <a href="cybersecurity_website_details.html" target="_blank" class="cert-btn">View Details</a>
+      </div>
+
+      <!-- Bhagavad Gita Full Course -->
+      <div class="project">
+        <h3>📘 Bhagavad Gita Full Course</h3>
+        <p>Educational website with quizzes, search features, and lessons.</p>
+        <a href="bhagavad_gita_details.html" target="_blank" class="cert-btn">View Details</a>
+      </div>
+
+      <!-- Expense Tracker -->
+      <div class="project">
+        <h3>💰 Expense Tracker</h3>
+        <p>Tracks daily/weekly/monthly expenses with analytics dashboard.</p>
+        <a href="expense_tracker_details.html" target="_blank" class="cert-btn">View Details</a>
+      </div>
+
+      <!-- Portfolio Website -->
+      <div class="project">
+        <h3>🌐 Portfolio Website</h3>
+        <p>Responsive portfolio with Cyber Security theme & animations.</p>
+        <a href="portfolio_website_details.html" target="_blank" class="cert-btn">View Details</a>
+      </div>
+
+      <!-- More Projects -->
+      <div class="project">
+        <h3>🚀 More Projects...</h3>
+        <p>Other works in Cyber Security & Web Development.</p>
+        <a href="mailto:mohirerushikesh@gmail.com" class="cert-btn">Request Details</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Education -->
+<!-- Education -->
+<section id="education">
+  <div class="container">
+    <h2>Education</h2>
+    <div class="education-timeline">
+      
+      <div class="edu-card">
+        <h3>MCA – RIT, Islampur</h3>
+        <span class="edu-year">2024 – Present</span>
+        <p><strong>CGPA:</strong> 9.18 (Appearing)</p>
+        <p><em>Specialization:</em> Cyber Security & Web Development</p>
+      </div>
+
+      <div class="edu-card">
+        <h3>BCA – S.G.M. College, Karad</h3>
+        <span class="edu-year">2021 – 2024</span>
+        <p><strong>CGPA:</strong> 8.00</p>
+        <p><em>Major Subjects:</em> Programming, Database, Networking</p>
+      </div>
+
+      <div class="edu-card">
+        <h3>HSC – S.K.P. College, Ambak</h3>
+        <span class="edu-year">2019 – 2021</span>
+        <p><strong>Percentage:</strong> 70%</p>
+        <p><em>Focus:</em> Science Stream (Computer Science)</p>
+      </div>
+
+      <div class="edu-card">
+        <h3>SSC – T.R.V. School, Tadasar</h3>
+        <span class="edu-year">2018 – 2019</span>
+        <p><strong>Percentage:</strong> 82%</p>
+        <p><em>School Activities:</em> Science Club, Computer Lab Projects</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Skills -->
+<section id="skills">
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">HTML, CSS, JavaScript, React, TailwindCSS, Node.js</div>
+      <div class="skill-card">Ethical Hacking, Cryptography, Linux Security, Threat Detection</div>
+      <div class="skill-card">Python, Scikit-learn, TensorFlow (Beginner)</div>
+      <div class="skill-card">MySQL, Git, Firebase</div>
+      <div class="skill-card">Problem-solving, Research, Team Collaboration, Continuous Learning</div>
+    </div>
+  </div>
+</section>
+
+<!-- Certificates -->
+<section id="certificates">
+  <div class="container">
+    <h2>Certificates</h2>
+    <div class="cert-grid">
+      <div class="certificate"><h3>AWS Virtual Internship</h3><a href="RUSHIKESH MOHIRE aws.pdf" target="_blank">View Certificate</a></div>
+      <div class="certificate"><h3>Hack The Box Labs</h3><a href="your_htb_certificate_link_here" target="_blank">View Certificate</a></div>
+      <div class="certificate"><h3>10xCyber Bootcamp</h3><a href="RUSHIKESH MOHIRE bootcamp.pdf" target="_blank">View Certificate</a></div>
+      <div class="certificate"><h3>Cyber Security Fundamentals</h3><a href="Simplilearn Certificate.pdf" target="_blank">View Certificate</a></div>
+      <div class="certificate"><h3>Acquiring Data (Level 1 - AI Fundamentals of AI
+      ASCEND) by Accenture</h3><a href="rushikesh accuraing data.pdf" target="_blank">View Certificate</a></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <ul>
+      <li><a href="https://wa.me/919130561448" target="_blank">💬 WhatsApp</a></li>
+      <li><a href="mailto:mohirerushikesh@gmail.com">📧 Email</a></li>
+      <li><a href="https://www.linkedin.com/in/rushikesh-mohire-bb8a59304" target="_blank">🔗 LinkedIn</a></li>
+    </ul>
+  </div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2025 Rushikesh Mohire. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#home">Home</a> |
+      <a href="#about">About</a> |
+      <a href="#education">Education</a> |
+      <a href="#projects">Projects</a> |
+      <a href="#skills">Skills</a> |
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  // Particles.js config
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 80 },
+      "size": { "value": 3 },
+      "move": { "speed": 2 },
+      "line_linked": { "enable": true, "color": "#00ffcc" }
+    }
+  });
+
+  // Animated roles
+  const roles = ["Cyber Security Enthusiast", "Full Stack Developer", "Researcher & Learner"];
+  let roleIndex = 0;
+  const roleElement = document.querySelector(".animated-role");
+  function changeRole() {
+    roleElement.textContent = roles[roleIndex];
+    roleIndex = (roleIndex + 1) % roles.length;
+  }
+  setInterval(changeRole, 2500);
+  changeRole();
+</script>
+</body>
+</html>
